@@ -40,7 +40,9 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="rel_pet_vax" edge="1" parent="1" source="d_mascota" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=none;startArrow=none;" target="d_vacuna" value="1 mascota — N vacunas">
-          <mxGeometry relative="1" as="geometry" />
+          <mxGeometry relative="1" x="-0.3821" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="rel_consult_vax" edge="1" parent="1" source="d_consulta" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=none;startArrow=none;" target="d_vacuna" value="1 consulta — N vacunas">
           <mxGeometry relative="1" as="geometry" />
