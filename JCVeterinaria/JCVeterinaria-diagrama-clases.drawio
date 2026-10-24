@@ -1,0 +1,194 @@
+<mxfile host="app.diagrams.net" agent="Codex" pages="2">
+  <diagram id="domain" name="Modelo de dominio">
+    <mxGraphModel dx="1483" dy="816" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="d_dueno" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=10;fontSize=14;fontFamily=Helvetica;fillColor=#dbeafe;strokeColor=#475569;strokeWidth=1.5;shadow=1;" value="«entidad»&#xa;dueno&#xa;--------------------&#xa;- id_dueño: int&#xa;- nombre: String&#xa;- C_I: String&#xa;- telefono: String&#xa;- email: String" vertex="1">
+          <mxGeometry height="220" width="270" x="80" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="d_mascota" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=10;fontSize=14;fontFamily=Helvetica;fillColor=#dbeafe;strokeColor=#475569;strokeWidth=1.5;shadow=1;" value="«entidad»&#xa;mascota&#xa;--------------------&#xa;- id_mascota: int&#xa;- nombre: String&#xa;- edad: int&#xa;- especie: String&#xa;- raza: String&#xa;- sexo: String&#xa;- peso: double" vertex="1">
+          <mxGeometry height="260" width="290" x="480" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="d_vet" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=10;fontSize=14;fontFamily=Helvetica;fillColor=#dbeafe;strokeColor=#475569;strokeWidth=1.5;shadow=1;" value="«entidad»&#xa;veterinario&#xa;--------------------&#xa;- id_veterinario: int&#xa;- nombre_veterinario: String&#xa;- contraseña: String&#xa;- especialidad: String" vertex="1">
+          <mxGeometry height="220" width="300" x="1090" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="d_consulta" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=10;fontSize=14;fontFamily=Helvetica;fillColor=#dbeafe;strokeColor=#475569;strokeWidth=1.5;shadow=1;" value="«entidad»&#xa;consulta&#xa;--------------------&#xa;- id_consulta: int&#xa;- procedimiento: String&#xa;- fecha_consulta: String&#xa;- hora: String&#xa;- id_mascota: int&#xa;- id_veterinario: int" vertex="1">
+          <mxGeometry height="250" width="330" x="430" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="d_vacuna" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=10;fontSize=14;fontFamily=Helvetica;fillColor=#dbeafe;strokeColor=#475569;strokeWidth=1.5;shadow=1;" value="«entidad»&#xa;vacuna&#xa;--------------------&#xa;- id_vacuna: int&#xa;- tipo_vacuna: String&#xa;- fecha_vacuna: String&#xa;- hora_vacuna: String&#xa;- vencimiento: String&#xa;- id_mascota: int&#xa;- id_consulta: int" vertex="1">
+          <mxGeometry height="270" width="330" x="930" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_owner_pet" edge="1" parent="1" source="d_dueno" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=none;startArrow=none;" target="d_mascota" value="1 dueño — N mascotas">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_pet_consult" edge="1" parent="1" source="d_mascota" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=none;startArrow=none;" target="d_consulta" value="1 mascota — N consultas">
+          <mxGeometry relative="1" x="-0.3191" y="-10" as="geometry">
+            <mxPoint x="10" y="10" as="offset" />
+            <Array as="points">
+              <mxPoint x="670" y="460" />
+              <mxPoint x="595" y="460" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_vet_consult" edge="1" parent="1" source="d_vet" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=none;startArrow=none;" target="d_consulta" value="1 veterinario — N consultas">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1240" y="400" />
+              <mxPoint x="595" y="400" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_pet_vax" edge="1" parent="1" source="d_mascota" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=none;startArrow=none;" target="d_vacuna" value="1 mascota — N vacunas">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_consult_vax" edge="1" parent="1" source="d_consulta" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=none;startArrow=none;" target="d_vacuna" value="1 consulta — N vacunas">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note_relationships" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=18;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;align=left;verticalAlign=top;spacing=8;" value="Las asociaciones reflejan las claves foráneas declaradas en veterinaria.sql. Las clases de dominio guardan algunos vínculos como identificadores (por ejemplo, id_mascota e id_veterinario)." vertex="1">
+          <mxGeometry height="145" width="330" x="1290" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="tICHynuWI0APD98LoeDW-2" edge="1" parent="1" source="note_relationships" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;innerLoopWaypoints=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;defaultLabelBackgroundColor=page;" target="note_relationships">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="architecture" name="Arquitectura de clases">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2200" pageHeight="1600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="a_app" value="«punto de entrada»&#xa;App&#xa;--------------------&#xa;+ main(args: String[]): void" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=10;fontSize=14;fontFamily=Helvetica;fillColor=#ede9fe;strokeColor=#475569;strokeWidth=1.5;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="50" width="300" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="a_session" value="«vista»&#xa;sesion&#xa;--------------------&#xa;+ sesion()&#xa;- initComponents(): void&#xa;Estado: en desarrollo" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=10;fontSize=14;fontFamily=Helvetica;fillColor=#fce7f3;strokeColor=#475569;strokeWidth=1.5;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="250" width="320" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="a_interfaz" value="«vista»&#xa;Interfaz&#xa;--------------------&#xa;+ Interfaz()&#xa;+ registrar(nombreLista): void&#xa;+ actualizarTabla(nombreLista): void&#xa;+ main(args): void" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=10;fontSize=14;fontFamily=Helvetica;fillColor=#fce7f3;strokeColor=#475569;strokeWidth=1.5;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="250" width="400" height="205" as="geometry" />
+        </mxCell>
+        <mxCell id="app_session" value="inicia y muestra" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=none;startArrow=none;" edge="1" parent="1" source="a_app" target="a_session">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="app_ui" value="instancia" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=none;startArrow=none;" edge="1" parent="1" source="a_app" target="a_interfaz">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="g_dueno" value="«gestión»&#xa;gestionDueño&#xa;--------------------&#xa;+ guardar(entidad): int&#xa;+ listar(): List&#xa;+ actualizar(entidad): boolean&#xa;+ eliminar(id: int): boolean" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=10;fontSize=14;fontFamily=Helvetica;fillColor=#dcfce7;strokeColor=#475569;strokeWidth=1.5;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="590" width="300" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="ui_dueno" value="usa" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;strokeWidth=1.5;endArrow=none;startArrow=none;dashed=1;dashPattern=6 4;" edge="1" parent="1" source="a_interfaz" target="g_dueno">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="g_mascota" value="«gestión»&#xa;gestionMascota&#xa;--------------------&#xa;+ guardar(entidad): int&#xa;+ listar(): List&#xa;+ actualizar(entidad): boolean&#xa;+ eliminar(id: int): boolean" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=10;fontSize=14;fontFamily=Helvetica;fillColor=#dcfce7;strokeColor=#475569;strokeWidth=1.5;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="590" width="300" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="ui_mascota" value="usa" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;strokeWidth=1.5;endArrow=none;startArrow=none;dashed=1;dashPattern=6 4;" edge="1" parent="1" source="a_interfaz" target="g_mascota">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="g_consulta" value="«gestión»&#xa;gestionConsulta&#xa;--------------------&#xa;+ guardar(entidad): int&#xa;+ listar(): List&#xa;+ actualizar(entidad): boolean&#xa;+ eliminar(id: int): boolean" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=10;fontSize=14;fontFamily=Helvetica;fillColor=#dcfce7;strokeColor=#475569;strokeWidth=1.5;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="940" y="590" width="300" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="ui_consulta" value="usa" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;strokeWidth=1.5;endArrow=none;startArrow=none;dashed=1;dashPattern=6 4;" edge="1" parent="1" source="a_interfaz" target="g_consulta">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="g_vacuna" value="«gestión»&#xa;gestionVacuna&#xa;--------------------&#xa;+ guardar(entidad): int&#xa;+ listar(): List&#xa;+ actualizar(entidad): boolean&#xa;+ eliminar(id: int): boolean" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=10;fontSize=14;fontFamily=Helvetica;fillColor=#dcfce7;strokeColor=#475569;strokeWidth=1.5;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="590" width="300" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="ui_vacuna" value="usa" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;strokeWidth=1.5;endArrow=none;startArrow=none;dashed=1;dashPattern=6 4;" edge="1" parent="1" source="a_interfaz" target="g_vacuna">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="g_vet" value="«gestión»&#xa;gestionVeterinario&#xa;--------------------&#xa;+ guardar(entidad): int&#xa;+ listar(): List&#xa;+ actualizar(entidad): boolean&#xa;+ eliminar(id: int): boolean" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=10;fontSize=14;fontFamily=Helvetica;fillColor=#dcfce7;strokeColor=#475569;strokeWidth=1.5;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1680" y="590" width="300" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="ui_vet" value="usa" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;strokeWidth=1.5;endArrow=none;startArrow=none;dashed=1;dashPattern=6 4;" edge="1" parent="1" source="a_interfaz" target="g_vet">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dao_dueno" value="«DAO»&#xa;DuenoDAO&#xa;--------------------&#xa;+ guardar(entidad): int&#xa;+ listar(): List&#xa;+ actualizar(entidad): boolean&#xa;+ eliminar(id: int): boolean" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=10;fontSize=14;fontFamily=Helvetica;fillColor=#ffedd5;strokeColor=#475569;strokeWidth=1.5;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="900" width="300" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="gdao_dueno" value="delega" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=none;startArrow=none;" edge="1" parent="1" source="g_dueno" target="dao_dueno">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dao_mascota" value="«DAO»&#xa;MascotaDAO&#xa;--------------------&#xa;+ guardar(entidad): int&#xa;+ listar(): List&#xa;+ actualizar(entidad): boolean&#xa;+ eliminar(id: int): boolean" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=10;fontSize=14;fontFamily=Helvetica;fillColor=#ffedd5;strokeColor=#475569;strokeWidth=1.5;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="900" width="300" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="gdao_mascota" value="delega" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=none;startArrow=none;" edge="1" parent="1" source="g_mascota" target="dao_mascota">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dao_consulta" value="«DAO»&#xa;ConsultaDAO&#xa;--------------------&#xa;+ guardar(entidad): int&#xa;+ listar(): List&#xa;+ actualizar(entidad): boolean&#xa;+ eliminar(id: int): boolean" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=10;fontSize=14;fontFamily=Helvetica;fillColor=#ffedd5;strokeColor=#475569;strokeWidth=1.5;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="940" y="900" width="300" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="gdao_consulta" value="delega" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=none;startArrow=none;" edge="1" parent="1" source="g_consulta" target="dao_consulta">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dao_vacuna" value="«DAO»&#xa;VacunaDAO&#xa;--------------------&#xa;+ guardar(entidad): int&#xa;+ listar(): List&#xa;+ actualizar(entidad): boolean&#xa;+ eliminar(id: int): boolean" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=10;fontSize=14;fontFamily=Helvetica;fillColor=#ffedd5;strokeColor=#475569;strokeWidth=1.5;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="900" width="300" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="gdao_vacuna" value="delega" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=none;startArrow=none;" edge="1" parent="1" source="g_vacuna" target="dao_vacuna">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dao_vet" value="«DAO»&#xa;VeterinarioDAO&#xa;--------------------&#xa;+ guardar(entidad): int&#xa;+ listar(): List&#xa;+ actualizar(entidad): boolean&#xa;+ eliminar(id: int): boolean" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=10;fontSize=14;fontFamily=Helvetica;fillColor=#ffedd5;strokeColor=#475569;strokeWidth=1.5;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1680" y="900" width="300" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="gdao_vet" value="delega" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=none;startArrow=none;" edge="1" parent="1" source="g_vet" target="dao_vet">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a_conn" value="«conexión»&#xa;Conexion&#xa;--------------------&#xa;+ getConexion(): Connection&#xa;URL y credenciales MySQL" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=10;fontSize=14;fontFamily=Helvetica;fillColor=#fef3c7;strokeColor=#475569;strokeWidth=1.5;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1810" y="900" width="300" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="db_dueno" value="abre conexión" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;strokeWidth=1.5;endArrow=none;startArrow=none;dashed=1;dashPattern=6 4;" edge="1" parent="1" source="dao_dueno" target="a_conn">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="db_mascota" value="abre conexión" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;strokeWidth=1.5;endArrow=none;startArrow=none;dashed=1;dashPattern=6 4;" edge="1" parent="1" source="dao_mascota" target="a_conn">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="db_consulta" value="abre conexión" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;strokeWidth=1.5;endArrow=none;startArrow=none;dashed=1;dashPattern=6 4;" edge="1" parent="1" source="dao_consulta" target="a_conn">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="db_vacuna" value="abre conexión" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;strokeWidth=1.5;endArrow=none;startArrow=none;dashed=1;dashPattern=6 4;" edge="1" parent="1" source="dao_vacuna" target="a_conn">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="db_vet" value="abre conexión" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;strokeWidth=1.5;endArrow=none;startArrow=none;dashed=1;dashPattern=6 4;" edge="1" parent="1" source="dao_vet" target="a_conn">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a_legend" value="Relaciones punteadas: dependencia de uso.&#xa;La capa Vista usa clases de gestión; estas delegan en DAOs. Los DAOs acceden a MySQL mediante Conexion y trabajan con entidades del dominio." style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=18;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;align=left;verticalAlign=top;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="1100" width="520" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="a_status" value="sesion.java está en desarrollo. App crea Interfaz, pero actualmente muestra sesion. Interfaz también tiene un main propio para abrir directamente la pantalla de gestión." style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=18;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;align=left;verticalAlign=top;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="350" y="1100" width="700" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_entity_dueno" value="«entidad»\ndueno&#xa;--------------------&#xa;- id_dueño: int&#xa;- nombre: String&#xa;- C_I: String" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=10;fontSize=13;fontFamily=Helvetica;fillColor=#dbeafe;strokeColor=#475569;strokeWidth=1.5;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1300" width="300" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="dao_entity_dueno" value="usa" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;strokeWidth=1.5;endArrow=none;startArrow=none;dashed=1;dashPattern=6 4;" edge="1" parent="1" source="dao_dueno" target="arch_entity_dueno">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_entity_mascota" value="«entidad»\nmascota&#xa;--------------------&#xa;- id_mascota: int&#xa;- nombre: String&#xa;- edad: int" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=10;fontSize=13;fontFamily=Helvetica;fillColor=#dbeafe;strokeColor=#475569;strokeWidth=1.5;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="1300" width="300" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="dao_entity_mascota" value="usa" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;strokeWidth=1.5;endArrow=none;startArrow=none;dashed=1;dashPattern=6 4;" edge="1" parent="1" source="dao_mascota" target="arch_entity_mascota">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_entity_consulta" value="«entidad»\nconsulta&#xa;--------------------&#xa;- id_consulta: int&#xa;- procedimiento: String&#xa;- id_mascota: int" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=10;fontSize=13;fontFamily=Helvetica;fillColor=#dbeafe;strokeColor=#475569;strokeWidth=1.5;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="820" y="1300" width="300" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="dao_entity_consulta" value="usa" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;strokeWidth=1.5;endArrow=none;startArrow=none;dashed=1;dashPattern=6 4;" edge="1" parent="1" source="dao_consulta" target="arch_entity_consulta">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_entity_vacuna" value="«entidad»\nvacuna&#xa;--------------------&#xa;- id_vacuna: int&#xa;- tipo_vacuna: String&#xa;- id_consulta: int" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=10;fontSize=13;fontFamily=Helvetica;fillColor=#dbeafe;strokeColor=#475569;strokeWidth=1.5;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1190" y="1300" width="300" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="dao_entity_vacuna" value="usa" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;strokeWidth=1.5;endArrow=none;startArrow=none;dashed=1;dashPattern=6 4;" edge="1" parent="1" source="dao_vacuna" target="arch_entity_vacuna">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arch_entity_vet" value="«entidad»\nveterinario&#xa;--------------------&#xa;- id_veterinario: int&#xa;- nombre_veterinario: String&#xa;- especialidad: String" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=10;fontSize=13;fontFamily=Helvetica;fillColor=#dbeafe;strokeColor=#475569;strokeWidth=1.5;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="1300" width="300" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="dao_entity_vet" value="usa" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;strokeWidth=1.5;endArrow=none;startArrow=none;dashed=1;dashPattern=6 4;" edge="1" parent="1" source="dao_vet" target="arch_entity_vet">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
