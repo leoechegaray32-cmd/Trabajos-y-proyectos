@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Codex" pages="2">
   <diagram id="domain" name="Modelo de dominio">
-    <mxGraphModel dx="1036" dy="570" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1000" math="0" shadow="0">
+    <mxGraphModel dx="1593" dy="876" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1000" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -51,7 +51,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="note_relationships" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=18;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;align=left;verticalAlign=top;spacing=8;" value="Las asociaciones reflejan las claves foráneas declaradas en veterinaria.sql. Las clases de dominio guardan algunos vínculos como identificadores (por ejemplo, id_mascota e id_veterinario)." vertex="1">
-          <mxGeometry height="145" width="330" x="1290" y="590" as="geometry" />
+          <mxGeometry height="145" width="330" x="110" y="368" as="geometry" />
         </mxCell>
         <mxCell id="tICHynuWI0APD98LoeDW-2" edge="1" parent="1" source="note_relationships" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;innerLoopWaypoints=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;defaultLabelBackgroundColor=page;" target="note_relationships">
           <mxGeometry relative="1" as="geometry" />
